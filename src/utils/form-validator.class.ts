@@ -1,9 +1,9 @@
 export class FormValidator {
-  isEmailValid(email: string): boolean {
+  public static isEmailValid(email: string): boolean {
     return !!email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
   }
 
-  isPasswordValid(pass: string): boolean {
+  public static isPasswordValid(pass: string): boolean {
     return pass.trim().length >= 6 && !pass.includes(" ");
   }
 }

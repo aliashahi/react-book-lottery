@@ -1,4 +1,6 @@
+import { Redirect, Route, Switch } from "react-router-dom";
 import { Header } from "./Header";
+import LotteryList from "./lottery-list/LotteryList";
 import { Sidenav } from "./Sidenav";
 
 function Main() {
@@ -7,11 +9,13 @@ function Main() {
       <Header />
       <div className="flex flex-row">
         <Sidenav />
-        <div className="site-layout-background inline">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt at neque
-          est! Consequatur, error vitae, est animi sed, facere nihil commodi
-          asperiores nobis repudiandae enim doloremque maxime officia
-          accusantium et!
+        <div className="inline bg-white overflow-x-hidden overflow-y-scroll">
+          <Switch>
+            <Route path="/lottery-list">
+              <LotteryList />
+            </Route>
+            <Redirect to="/lottery-list" />
+          </Switch>
         </div>
       </div>
     </div>

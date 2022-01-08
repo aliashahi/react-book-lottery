@@ -4,9 +4,11 @@ import { supabase } from "../services/supabase.client";
 import { StorageHandler } from "../utils/storage.class";
 import { AlertService } from "../services/alert.service";
 import { FormValidator } from "../utils/form-validator.class";
+import { Spin } from "antd";
 
 export const Login = (props: any) => {
   const [disable, setDisable] = useState<boolean>(true);
+  const [pending, setPending] = useState<boolean>(false);
   const [form, setForm] = useState<{
     email: string;
     password: string;
@@ -20,6 +22,7 @@ export const Login = (props: any) => {
   const handleLogin = async (e: any) => {
     e.preventDefault();
     setDisable(true);
+    setPending(true);
     const x = await supabase.auth
       .signIn({ ...form })
       .then(({ user, session, error }) => {
@@ -34,6 +37,7 @@ export const Login = (props: any) => {
       })
       .finally(() => {
         setDisable(false);
+        setPending(false);
       });
   };
 
@@ -124,6 +128,7 @@ export const Login = (props: any) => {
           type="submit"
           className="btn btn-success mt-14 w-full"
         >
+          {pending ? <Spin size="large" className="!mx-4" /> : ""}
           Login
         </button>
       </form>

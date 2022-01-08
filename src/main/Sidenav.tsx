@@ -3,14 +3,11 @@ import SubMenu from "antd/lib/menu/SubMenu";
 import { useEffect } from "react";
 
 export const Sidenav = () => {
-  useEffect(() => {
-    window.addEventListener("popstate", (e) => console.log(23232));
-  }, []);
   return (
-    <div className="!w-[400px] inline site-layout-background">
+    <div className="!w-[250px] inline site-layout-background">
       <Menu
         mode="inline"
-        defaultSelectedKeys={["1"]}
+        defaultSelectedKeys={["lotteries"]}
         defaultOpenKeys={["dashboard"]}
         style={{ height: "100%", borderRight: 0 }}
       >

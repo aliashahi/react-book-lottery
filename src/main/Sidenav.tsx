@@ -1,31 +1,53 @@
 import { Menu } from "antd";
 import SubMenu from "antd/lib/menu/SubMenu";
-import { useEffect } from "react";
+import { useHistory } from "react-router-dom";
 
 export const Sidenav = () => {
+  let x: string = window.location.href.split("/").pop() ?? "lotteries";
+  const history = useHistory();
+  const Navigate = (url: string) => {
+    history.push(url);
+  };
+
   return (
-    <div className="!w-[250px] inline site-layout-background">
+    <div className="site-layout-background">
       <Menu
         mode="inline"
-        defaultSelectedKeys={["lotteries"]}
+        defaultSelectedKeys={[x]}
         defaultOpenKeys={["dashboard"]}
         style={{ height: "100%", borderRight: 0 }}
       >
         <SubMenu key="dashboard" title="Dashboard">
-          <Menu.Item key="lotteries">Lotteries</Menu.Item>
-          <Menu.Item key="explore">Explore</Menu.Item>
-          <Menu.Item key="in_progress">In Progress</Menu.Item>
-          <Menu.Item key="favorites">Favorites</Menu.Item>
-          <Menu.Item key="archived">Archived</Menu.Item>
+          <Menu.Item
+            onClick={() => Navigate("/create-lottery")}
+            key="create-lottery"
+          >
+            Create Lottery
+          </Menu.Item>
+          <Menu.Item onClick={() => Navigate("/lotteries")} key="lotteries">
+            Lotteries
+          </Menu.Item>
+          <Menu.Item onClick={() => Navigate("/explore")} key="explore">
+            Explore
+          </Menu.Item>
+          <Menu.Item onClick={() => Navigate("/in-progress")} key="in-progress">
+            In Progress
+          </Menu.Item>
+          <Menu.Item onClick={() => Navigate("/favorites")} key="favorites">
+            Favorites
+          </Menu.Item>
+          <Menu.Item onClick={() => Navigate("/archived")} key="archived">
+            Archived
+          </Menu.Item>
         </SubMenu>
         <SubMenu key="setting" title="Setting">
-          <Menu.Item onClick={() => console.log("profile")} key="profile">
+          <Menu.Item onClick={() => Navigate("/profile")} key="profile">
             Profile
           </Menu.Item>
-          <Menu.Item onClick={() => console.log("about_us")} key="about_us">
+          <Menu.Item onClick={() => Navigate("/about-us")} key="about_us">
             About Us
           </Menu.Item>
-          <Menu.Item onClick={() => console.log("f_and_q")} key="f_and_q">
+          <Menu.Item onClick={() => Navigate("/f-and-q")} key="f_and_q">
             F&Q
           </Menu.Item>
         </SubMenu>

@@ -1,6 +1,7 @@
 import { Redirect, Route, Switch } from "react-router-dom";
 import CreateLottery from "./create-lottery/CreateLottery";
 import { Header } from "./Header";
+import LotteryDetail from "./lottery-detail/LotteryDetail";
 import LotteryList from "./lottery-list/LotteryList";
 import { Sidenav } from "./Sidenav";
 
@@ -12,6 +13,9 @@ function Main() {
         <Sidenav />
         <div className="col-span-4 inline !w-[100vw-250px] bg-white overflow-x-hidden overflow-y-scroll">
           <Switch>
+            <Route path="/lottery-list/:id">
+              <LotteryDetail />
+            </Route>
             <Route path="/lottery-list">
               <LotteryList />
             </Route>

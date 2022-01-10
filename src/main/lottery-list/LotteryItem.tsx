@@ -84,7 +84,7 @@ export default function LotteryItem({
           >
             <EllipsisOutlined key="ellipsis" />
           </Popover>,
-          <EditOutlined onClick={() => {}} key="edit" />,
+          <EditOutlined onClick={onShowDetails} key="edit" />,
         ]}
       >
         <Meta

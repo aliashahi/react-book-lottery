@@ -4,9 +4,11 @@ import { supabase } from "../../services/supabase.client";
 import { Lottery } from "../../shared/models/lottery.mode";
 import { StorageHandler } from "../../utils";
 import { AlertService } from "../../services/alert.service";
+import { useHistory } from "react-router-dom";
 
 export default function LotteryList(props: any) {
   const [data, setData] = useState<Lottery[]>([]);
+  const history = useHistory();
   const getLotteries = async () => {
     const userId = StorageHandler.getUserData()?.id;
     await supabase
@@ -28,6 +30,7 @@ export default function LotteryList(props: any) {
 
   const onShowDetails = (id: string) => {
     console.log(id);
+    history.push("lottery-list/" + id);
   };
 
   const onDeleteLottery = async (id: string) => {

@@ -68,10 +68,7 @@ export default function LotteryItem({
   };
 
   return (
-    <div
-      className="p-2 hover:scale-105 transition-all cursor-pointer"
-      onClick={onShowDetails}
-    >
+    <div className="p-2 hover:scale-105 transition-all cursor-pointer">
       <Card
         style={{ width: 300 }}
         cover={<img alt="lottery.img" src={LOTTERY_IMAGE} />}

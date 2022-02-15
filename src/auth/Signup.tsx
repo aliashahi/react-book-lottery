@@ -64,7 +64,7 @@ export const Signup = (props: any) => {
     setForm(new_form);
   };
   return (
-    <div className="w-[400px]  p-4 rounded-lg flex flex-col justify-center">
+    <div className="w-[400px]  p-4 rounded-lg flex flex-col justify-center bg-white shadow-2xl">
       <span className="text-3xl font-bold pb-4">Sign Up</span>
       <form onSubmit={handleLogin}>
         <div className="form-control">
@@ -118,7 +118,7 @@ export const Signup = (props: any) => {
           className="flex justify-between items-center py-1 text-sm text-blue-500"
         >
           <a href="#" onClick={() => props.onLogin()}>
-            already have an account
+            already have an account ?
           </a>
         </div>
         <button

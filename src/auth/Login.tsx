@@ -65,7 +65,7 @@ export const Login = (props: any) => {
     setForm(new_form);
   };
   return (
-    <div className="w-[400px]  p-4 rounded-lg flex flex-col justify-center">
+    <div className="w-[400px] bg-white shadow-2xl p-4 rounded-lg flex flex-col justify-center">
       <span className="text-3xl font-bold pb-4"> Login</span>
       <form onSubmit={handleLogin}>
         <div className="form-control">
@@ -83,13 +83,15 @@ export const Login = (props: any) => {
             required
             className="input input-bordered"
           />
-          {form.InvalidEmailMessage ? (
-            <span className="text-red-600 transition-all text-xs py-1">
-              {form.InvalidEmailMessage}
-            </span>
-          ) : (
-            ""
-          )}
+          <div className="h-5">
+            {form.InvalidEmailMessage ? (
+              <span className="text-red-600 transition-all text-xs py-1">
+                {form.InvalidEmailMessage}
+              </span>
+            ) : (
+              ""
+            )}
+          </div>
         </div>
         <div className="form-control">
           <label className="label">
@@ -106,20 +108,22 @@ export const Login = (props: any) => {
             name="password"
             className="input input-bordered"
           />
-          {form.InvalidPasswordMessage ? (
-            <span className="text-red-600 transition-all text-xs py-1">
-              {form.InvalidPasswordMessage}
-            </span>
-          ) : (
-            ""
-          )}
+          <div className="h-5">
+            {form.InvalidPasswordMessage ? (
+              <span className="text-red-600 transition-all text-xs py-1">
+                {form.InvalidPasswordMessage}
+              </span>
+            ) : (
+              ""
+            )}
+          </div>
         </div>
         <div
           id="extra_actions"
           className="flex justify-between items-center py-1 text-sm text-blue-500"
         >
           <a href="#" onClick={() => props.onSignup()}>
-            sign up
+            i don't have an account
           </a>
           <a href="#">forget password</a>
         </div>
